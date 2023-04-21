@@ -13,7 +13,6 @@
 #include <unistd.h>
 #include <netdb.h>
 
-
 extern time_t time();
 
 int maxlives = 12;
@@ -29,7 +28,7 @@ void play_hangman(int in, int out) {
     char *whole_word, part_word[MAXLEN],
             guess[MAXLEN], outbuf[MAXLEN];
 
-    int lives = maxlives;
+    int lives = maxlives; //The max amount of lives the player has
     int game_state = 'I';//I = Incomplete
     int i, good_guess, word_length;
     char hostname[MAXLEN];
