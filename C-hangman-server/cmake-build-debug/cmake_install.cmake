@@ -1,4 +1,4 @@
-# Install script for directory: /home/merri/CLionProjects/hangman/C-hangman-server
+# Install script for directory: /home/merri/CLionProjects/C-hangman/C-hangman-server
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/merri/CLionProjects/hangman/C-hangman-server/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/merri/CLionProjects/C-hangman/C-hangman-server/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

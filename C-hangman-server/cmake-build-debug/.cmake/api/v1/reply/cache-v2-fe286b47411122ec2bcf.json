@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/merri/CLionProjects/hangman/C-hangman-server/cmake-build-debug"
+			"value" : "/home/merri/CLionProjects/C-hangman/C-hangman-server/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -415,7 +415,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/merri/CLionProjects/hangman/C-hangman-server/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "/home/merri/CLionProjects/C-hangman/C-hangman-server/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -475,7 +475,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/merri/CLionProjects/hangman/C-hangman-server"
+			"value" : "/home/merri/CLionProjects/C-hangman/C-hangman-server"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1007,7 +1007,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/merri/CLionProjects/hangman/C-hangman-server/cmake-build-debug"
+			"value" : "/home/merri/CLionProjects/C-hangman/C-hangman-server/cmake-build-debug"
 		},
 		{
 			"name" : "C_hangman_server_IS_TOP_LEVEL",
@@ -1031,7 +1031,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/merri/CLionProjects/hangman/C-hangman-server"
+			"value" : "/home/merri/CLionProjects/C-hangman/C-hangman-server"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

@@ -1,3 +1,5 @@
 # ninja log v5
 0	78	1682072214599931580	CMakeFiles/C_hangman_server.dir/hangserver_iter.c.o	c96a7c464e1ba3dc
 78	105	1682072214627931579	C_hangman_server	bb5684b31dc4011
+0	68	1682073059919908529	CMakeFiles/C_hangman_server.dir/hangserver_iter.c.o	955d71ca408a34ae
+68	94	1682073059947908528	C_hangman_server	bb5684b31dc4011
