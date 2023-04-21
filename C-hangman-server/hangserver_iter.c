@@ -22,7 +22,7 @@
  # define MAXLEN 80 /* Maximum size in the world of Any string */
  /*# define HANGMAN_TCP_PORT 1066*/
 
- main()
+ int main()
  {
  	int sock, fd, client_len, r, process_id;
  	struct addrinfo hints, *server;
