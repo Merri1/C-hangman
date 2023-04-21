@@ -1,3 +1,0 @@
-/home/dominik/Documents/C-hangman/C-hangman-server/cmake-build-debug/CMakeFiles/C_hangman_server.dir
-/home/dominik/Documents/C-hangman/C-hangman-server/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/dominik/Documents/C-hangman/C-hangman-server/cmake-build-debug/CMakeFiles/rebuild_cache.dir
