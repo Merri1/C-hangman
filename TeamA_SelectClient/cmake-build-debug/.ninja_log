@@ -1,0 +1,8 @@
+# ninja log v5
+1	16	1682285793011071086	build.ninja	bc9c4ac0daaf58ef
+27	42	1682285777697782533	TeamA_SelectClient	e6dc6b3e0ab9054d
+0	27	1682285777681115915	CMakeFiles/TeamA_SelectClient.dir/TeamA_SelectClient.c.o	ffd638f85343ec4a
+1	32	1682287312160945358	CMakeFiles/TeamA_SelectClient.dir/TeamA_SelectClient.c.o	ffd638f85343ec4a
+32	48	1682287312174278655	TeamA_SelectClient	e6dc6b3e0ab9054d
+0	28	1682287623863494299	CMakeFiles/TeamA_SelectClient.dir/TeamA_SelectClient.c.o	ffd638f85343ec4a
+28	43	1682287623880160926	TeamA_SelectClient	e6dc6b3e0ab9054d

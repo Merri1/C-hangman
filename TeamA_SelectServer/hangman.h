@@ -91,7 +91,6 @@ void beginPlayerSession(int fd, struct player* player) {
     (*player).fileDescriptor = fd;
     (*player).remainingLives = 12;
     (*player).state = 'I';
-
 }
 
 #endif

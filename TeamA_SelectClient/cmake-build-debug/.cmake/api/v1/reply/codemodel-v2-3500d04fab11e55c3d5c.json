@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "TeamA_SelectServer",
+					"name" : "TeamA_SelectClient",
 					"targetIndexes" : 
 					[
 						0
@@ -38,9 +38,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "TeamA_SelectServer::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-TeamA_SelectServer-Debug-5449ab133c37df853db0.json",
-					"name" : "TeamA_SelectServer",
+					"id" : "TeamA_SelectClient::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-TeamA_SelectClient-Debug-d436cdf5860d81791728.json",
+					"name" : "TeamA_SelectClient",
 					"projectIndex" : 0
 				}
 			]
@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/merri/CLionProjects/C-hangman/TeamA_SelectServer/cmake-build-debug",
-		"source" : "/home/merri/CLionProjects/C-hangman/TeamA_SelectServer"
+		"build" : "/home/merri/CLionProjects/C-hangman/TeamA_SelectClient/cmake-build-debug",
+		"source" : "/home/merri/CLionProjects/C-hangman/TeamA_SelectClient"
 	},
 	"version" : 
 	{

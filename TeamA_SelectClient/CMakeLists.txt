@@ -3,4 +3,4 @@ project(TeamA_SelectClient C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(TeamA_SelectClient main.c)
+add_executable(TeamA_SelectClient TeamA_SelectClient.c TeamA_SelectClient.c)

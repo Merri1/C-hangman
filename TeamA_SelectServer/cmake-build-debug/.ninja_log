@@ -1,4 +1,9 @@
 # ninja log v5
-0	14	1682274784534889747	build.ninja	12a3eba1f85d286d
-32	47	1682258588328694238	TeamA_SelectServer	67b76615a6455784
-0	32	1682258588315360933	CMakeFiles/TeamA_SelectServer.dir/SelectServer.c.o	a6dea2d6f083ada9
+0	16	1682288189228962611	build.ninja	12a3eba1f85d286d
+0	21	1682285558295168352	CMakeFiles/TeamA_SelectServer.dir/home/merri/CLionProjects/C-hangman/DieWithMessage.c.o	3b6b8f97765ae05d
+34	48	1682287316640933039	TeamA_SelectServer	67b76615a6455784
+0	34	1682287316627599743	CMakeFiles/TeamA_SelectServer.dir/SelectServer.c.o	a6dea2d6f083ada9
+0	35	1682288532524965851	CMakeFiles/TeamA_SelectServer.dir/SelectServer.c.o	a6dea2d6f083ada9
+35	51	1682288532541632485	TeamA_SelectServer	67b76615a6455784
+0	35	1682288577784880227	CMakeFiles/TeamA_SelectServer.dir/SelectServer.c.o	a6dea2d6f083ada9
+35	50	1682288577798213536	TeamA_SelectServer	67b76615a6455784

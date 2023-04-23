@@ -1,94 +1,56 @@
-/* Network server for hangman game */
-/* File: hangserver.c */
-
 #include <sys/types.h>
 #include <sys/socket.h>
-#include <netinet/in.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
-#include <netdb.h>
 #include "hangman.h"
-#include "../DieWithUserMessage.c"
-
+#include "../TCPConnectionSetup.h"
 
 extern time_t time();
+
+int setup_socket(const char *string);
+
+int accept_connection(int socket);
 
 # define NUM_OF_WORDS (sizeof (word) / sizeof (word [0]))
 # define MAXLEN 80 /* Maximum size in the world of Any string */
 
-/*# define HANGMAN_TCP_PORT 1066*/
-
 int main() {
-    int sock, fd, client_len, r, process_id;
-    struct addrinfo hints, *server;
-    struct sockaddr client;
+    struct timeval timeout;
+    int serverSocket, process_id;
 
-    /*configuring the host*/
+    // Create a TCP socket on localhost port 8080
+    serverSocket = setup_socket("8080");
 
-    printf("Configuring the host.....,\n");
-    memset(&hints, 0, sizeof(struct addrinfo));
+    // Set timeout value to 10 seconds - not used anymore
+    timeout.tv_sec = 10;
+    timeout.tv_usec = 0;
 
-    hints.ai_family = AF_INET;
-    hints.ai_socktype = SOCK_STREAM;
-
-    r = getaddrinfo(0, "8080", &hints, &server);
-
-    if (r != 0) {
-        perror("failed");
-        exit(1);
-    }
-    puts("host configured,\n");
-
-    srand((int) time((long *) 0)); /* randomize the seed */
-
-    /*create the socket for the server*/
-
-    printf("assign a socket");
-
-    sock = socket(server->ai_family, server->ai_socktype, server->ai_protocol);//0 or IPPROTO_TCP
-    if (sock == -1) { //This error checking is the code Stevens wraps in his Socket Function etc
-        perror("Erro creating server socket");
-        exit(1);
-    }
-    puts("Server socket created");
-
-
-    if (bind(sock, server->ai_addr, server->ai_addrlen) < 0) {
-        perror("binding socket");
-        exit(2);
-    }
-    puts("Server socket is listening for incoming requests from Clients");
-    puts("Lets play hangman!");
-    listen(sock, 5);
+    // Declare two file descriptor sets
+    fd_set current_sockets, ready_sockets;
 
     while (1) {
-        client_len = sizeof(client);
-        /*accept function*/
-        puts("accepting new connection");
-        if ((fd = accept(sock, &client, &client_len)) < 0) {
-            perror("accepting connection");
-            exit(3);
-        } else {
+        FD_ZERO(&current_sockets);
+        FD_SET(serverSocket, &current_sockets);
 
+        ready_sockets = current_sockets;
+
+        if(select(FD_SETSIZE, &ready_sockets, NULL, NULL, NULL) < 0) {
+            DieWithSystemMessage("Failure with select() function call.");
         }
 
-        process_id = fork();
-
-        if (process_id == 0) {
-            // Child process
-            printf("Created child process %d \n", getpid());
-            close(sock);
-            play_hangman(fd, fd);
-            exit(0);
-
-            close(fd);
+        // Loop through the set of file descriptors
+        for(int i = 0; i < FD_SETSIZE; i++) {
+            // Check if any are ready for processing
+            if(FD_ISSET(i, &ready_sockets)) {
+                // If the socket is ready  a new connection is waiting
+                if(i == serverSocket) {
+                    // Accept new connection and add it to the list of current file descriptors
+                    int clientSocket = accept_connection(serverSocket);
+                    FD_SET(clientSocket, &current_sockets);
+                } else {
+                    // Other sockets that are ready are clients so continue playing the Hangman game
+                    play_hangman(i, i);
+                }
+            }
         }
     }
-}
-
-int setup_socket(char* portNum) {
-    struct addrinfo hints, server;
-    struct sockaddr client;
 }
