@@ -1,0 +1,3 @@
+/home/thomas/CLionProjects/C_hangman_UDPserver/cmake-build-debug/CMakeFiles/C_hangman_UDPserver.dir
+/home/thomas/CLionProjects/C_hangman_UDPserver/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/thomas/CLionProjects/C_hangman_UDPserver/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,14 +1,15 @@
 /* Hangclient.c - Client for hangman server.  */
 
-#include <stdio.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <netdb.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <netdb.h>
+#include <stdio.h> //has the information for all input, output related functions
+#include <sys/types.h> //The sys/types. h header file defines a collection of typedef symbols and structures
+#include <sys/socket.h> //The <sys/socket. h> header defines macros to gain access to the data arrays in the ancillary data associated with a message header
+#include <netinet/in.h> //Defines the IN6ADDR_ANY_INIT macro. This macro must be constant at compile time and can be used to initialize a variable of type struct in6_addr to the IPv6 wildcard address. This variable is initialized by the system to contain the loopback IPv6 address
+#include <netdb.h> //definitions for network database operations
+#include <stdlib.h> //declares various utility functions for type conversions, memory allocation, algorithms, and other similar use cases
+#include <string.h> //used for string handling or manipulation but also used for various memory handling operations
+#include <unistd.h> //defines many symbols to represent configuration variables and implementation features provided
+#include <netdb.h> //definitions for network database operations
+#include "../DieWithMessage.c"
 
 # define LINESIZE 80
 
@@ -36,7 +37,7 @@ int main(int argc, char *argv[]) {
     r = getaddrinfo(0, "8080", &hints, &server);
 
     if (r != 0) {
-        perror("failed");
+        DieWithSystemMessage("failed");
         exit(1);
     }
     puts("server configured,\n");
@@ -48,7 +49,7 @@ int main(int argc, char *argv[]) {
 
     sock = socket(server->ai_family, server->ai_socktype, server->ai_protocol);//0 or IPPROTO_TCP
     if (sock == -1) { //This error checking is the code Stevens wraps in his Socket Function etc
-        perror("Erro creating server socket");
+        DieWithSystemMessage("Erro creating server socket");
         exit(1);
     }
     puts("Client socket created");
@@ -64,7 +65,8 @@ int main(int argc, char *argv[]) {
     r = getaddrinfo(0, "8080", &hints, &server);
 
     if (r != 0) {
-        perror("failed");
+        DieWithSystemMessage("failed");
+
         exit(1);
     }
     puts("connecting .....,\n");
