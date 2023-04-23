@@ -13,8 +13,6 @@
  #include <unistd.h>
  #include <netdb.h>
  #include "hangman.h"
- 
-
 
  extern time_t time ();
 
@@ -72,7 +70,7 @@
  		client_len = sizeof (client);
  		/*accept function*/
  		puts("accepting new connection");
- 		if ((fd = accept (sock,  &client, &client_len)) <0) {
+ 		if ((fd = accept (sock,  &client, &client_len)) < 0) {
  			perror ("accepting connection");
  			exit (3);
  		}

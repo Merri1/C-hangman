@@ -1,0 +1,4 @@
+# ninja log v5
+0	14	1682274784534889747	build.ninja	12a3eba1f85d286d
+32	47	1682258588328694238	TeamA_SelectServer	67b76615a6455784
+0	32	1682258588315360933	CMakeFiles/TeamA_SelectServer.dir/SelectServer.c.o	a6dea2d6f083ada9

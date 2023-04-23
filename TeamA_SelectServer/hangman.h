@@ -24,6 +24,14 @@ char *word[] = {
 
 /*# define HANGMAN_TCP_PORT 1066*/
 
+struct player {
+    int fileDescriptor;
+    char state;
+    int remainingLives;
+    char* word;
+    char* wordInProgress;
+};
+
 void play_hangman(int in, int out) {
     char *whole_word, part_word[MAXLEN],
             guess[MAXLEN], outbuf[MAXLEN];
@@ -77,6 +85,13 @@ void play_hangman(int in, int out) {
         sprintf(outbuf, "%s %d \n", part_word, lives);
         write(out, outbuf, strlen(outbuf));
     }
+}
+
+void beginPlayerSession(int fd, struct player* player) {
+    (*player).fileDescriptor = fd;
+    (*player).remainingLives = 12;
+    (*player).state = 'I';
+
 }
 
 #endif

@@ -1,0 +1,3 @@
+/home/merri/CLionProjects/C-hangman/TeamA_SelectServer/cmake-build-debug/CMakeFiles/TeamA_SelectServer.dir
+/home/merri/CLionProjects/C-hangman/TeamA_SelectServer/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/merri/CLionProjects/C-hangman/TeamA_SelectServer/cmake-build-debug/CMakeFiles/rebuild_cache.dir
