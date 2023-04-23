@@ -1,0 +1,8 @@
+# ninja log v5
+0	28	1682191166091993947	CMakeFiles/C_hangman_UDPserver.dir/main.c.o	d75a423b65d4e772
+28	55	1682191166115993573	C_hangman_UDPserver	f5d5dd9012563c24
+0	144	1682194662132122547	CMakeFiles/C_hangman_UDPserver.dir/main.c.o	d75a423b65d4e772
+0	49	1682270388858341200	CMakeFiles/C_hangman_UDPserver.dir/main.c.o	d75a423b65d4e772
+49	75	1682270388878340970	C_hangman_UDPserver	f5d5dd9012563c24
+0	246	1682271797129191963	CMakeFiles/C_hangman_UDPserver.dir/main.c.o	d75a423b65d4e772
+246	271	1682271797341188357	C_hangman_UDPserver	f5d5dd9012563c24
