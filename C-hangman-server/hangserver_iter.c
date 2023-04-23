@@ -1,18 +1,20 @@
  /* Network server for hangman game */
  /* File: hangserver.c */
 
- #include <sys/types.h>
- #include <sys/socket.h>
- #include <netinet/in.h>
- #include <stdio.h>
- #include <syslog.h>
- #include <signal.h>
- #include <errno.h>
- #include <stdlib.h>
- #include <string.h>
- #include <unistd.h>
- #include <netdb.h>
- #include "hangman.h"
+ #include <sys/types.h> //The sys/types. h header file defines a collection of typedef symbols and structures
+ #include <sys/socket.h> //The <sys/socket. h> header defines macros to gain access to the data arrays in the ancillary data associated with a message header
+ #include <netinet/in.h> //Defines the IN6ADDR_ANY_INIT macro. This macro must be constant at compile time and can be used to initialize a variable of type struct in6_addr to the IPv6 wildcard address. This variable is initialized by the system to contain the loopback IPv6 address
+ #include <stdio.h> //has the information for all input, output related functions
+ #include <syslog.h> //Syslog is a protocol and utility for capturing and logging system information
+ #include <signal.h> //to specify how a program handles signals while it executes
+ #include <errno.h> //defines macros for reporting and retrieving error conditions using the symbol errno
+ #include <stdlib.h> //declares various utility functions for type conversions, memory allocation, algorithms, and other similar use cases
+ #include <string.h> //used for string handling or manipulation but also used for various memory handling operations
+ #include <unistd.h> //defines many symbols to represent configuration variables and implementation features provided
+ #include <netdb.h> //definitions for network database operations
+ #include "hangman.h" //Hangman script
+#include <sys/wait.h> //declarations for waiting
+#include "../DieWithMessage.c"
  
 
 
@@ -21,6 +23,12 @@
  # define NUM_OF_WORDS (sizeof (word) / sizeof (word [0]))
  # define MAXLEN 80 /* Maximum size in the world of Any string */
  /*# define HANGMAN_TCP_PORT 1066*/
+
+ void func (int signum) //On receipt of SIGCHLD, the corresponding handler is activated, which in turn calls the wait() system call
+ {
+     wait(NULL);
+ }
+
 
  int main()
  {
@@ -40,7 +48,7 @@
  	
  	if(r!=0)
  	{
- 		perror("failed");
+         DieWithSystemMessage("failed");
  		exit(1);
  	} 	
  	puts("host configured,\n");
@@ -53,7 +61,7 @@
 
  	sock = socket (server->ai_family, server->ai_socktype,server->ai_protocol);//0 or IPPROTO_TCP
  	if (sock ==-1) { //This error checking is the code Stevens wraps in his Socket Function etc
- 		perror ("Erro creating server socket");
+        DieWithSystemMessage("Error creating server socket");
  		exit (1);
  	}
  	puts("Server socket created");
@@ -61,7 +69,7 @@
  	
 
  	if (bind(sock, server->ai_addr,server->ai_addrlen) <0) {
- 		perror ("binding socket");
+        DieWithSystemMessage("binding socket");
 	 	exit (2);
  	}
 	puts("Server socket is listening for incoming requests from Clients");
@@ -73,7 +81,7 @@
  		/*accept function*/
  		puts("accepting new connection");
  		if ((fd = accept (sock,  &client, &client_len)) <0) {
- 			perror ("accepting connection");
+            DieWithSystemMessage("accepting connection");
  			exit (3);
  		}
  		else {
@@ -92,5 +100,10 @@
  			
  			close (fd);
  		}
+         else
+        {
+             signal(SIGCHLD, func);
+             while(1);
+        }
  	}
  }
